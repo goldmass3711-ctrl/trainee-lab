@@ -1,0 +1,9 @@
+{
+  "name": "OLETR",
+  "short_name": "OLETR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111b2c",
+  "theme_color": "#111b2c"
+}
