@@ -65,4 +65,11 @@ function backup(){let a=document.createElement('a'),u=URL.createObjectURL(new Bl
 function restore(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x.profile||!Array.isArray(x.tasks))throw 0;db={...structuredClone(defaults),...x};save();render();msg('백업을 불러왔습니다.')}catch{msg('올바른 백업 파일이 아닙니다.')}};r.readAsText(f)}
 function reset(){if(confirm('저장 데이터를 모두 초기화할까요?')){db=structuredClone(defaults);save();render()}}
 render();
+</script><script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch(error => console.error("SW registration failed:", error));
+  });
+}
 </script></body></html>
